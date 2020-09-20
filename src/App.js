@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Book from './classes/Book';
 import './App.css';
 import BookFormModal from './components/BookFormModal';
@@ -51,7 +52,7 @@ class App extends React.Component {
   handleBookFormSubmit(e) {
     const { books, bookForm } = this.state;
     const { title, author, pages, readed } = bookForm;
-    const book = new Book(title, author, pages, readed);
+    const book = new Book(uuidv4(), title, author, pages, readed);
     const newBooks = [...books, book];
     this._setItem('books', newBooks);
     this._resetBookForm();
