@@ -1,6 +1,8 @@
 import React from 'react';
 
-function BookFormModal() {
+function BookFormModal(props) {
+	const { data, handleChange } = props;
+
 	return (
 		<div
 			className="modal fade"
@@ -30,8 +32,11 @@ function BookFormModal() {
 								<label htmlFor="bookTitle">Book Title</label>
 								<input
 									type="text"
+									name="title"
 									className="form-control"
 									id="bookTitle"
+									value={data.title}
+									onChange={handleChange}
 									required
 								/>
 							</div>
@@ -39,8 +44,11 @@ function BookFormModal() {
 								<label htmlFor="bookAuthor">Book Author</label>
 								<input
 									type="text"
+									name="author"
 									className="form-control"
 									id="bookAuthor"
+									value={data.author}
+									onChange={handleChange}
 									required
 								/>
 							</div>
@@ -48,9 +56,12 @@ function BookFormModal() {
 								<label htmlFor="bookPages">Book Pages</label>
 								<input
 									type="number"
+									name="pages"
 									className="form-control"
 									id="bookPages"
 									min="1"
+									value={data.pages}
+									onChange={handleChange}
 									required
 								/>
 							</div>
@@ -63,6 +74,8 @@ function BookFormModal() {
 										name="readed"
 										id="readedNo"
 										value="No"
+										checked={data.readed === 'No'}
+										onChange={handleChange}
 									/>
 									<label className="form-check-label" htmlFor="readedNo">
 										No
@@ -75,6 +88,8 @@ function BookFormModal() {
 										name="readed"
 										id="readedYes"
 										value="Yes"
+										checked={data.readed === 'Yes'}
+										onChange={handleChange}
 									/>
 									<label className="form-check-label" htmlFor="readedYes">
 										Yes
