@@ -1,0 +1,12 @@
+.pointer-events-none {
+	pointer-events: none;
+}
+
+.books-table td {
+	vertical-align: middle;
+}
+
+.read-status-btn {
+	font-size: 1.1rem;
+	color: #fff;
+}
