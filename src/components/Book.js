@@ -4,7 +4,6 @@ import { faExchangeAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function Book(props) {
 	const data = props.data;
-	const readed = data.readed ? 'Yes' : 'No';
 
 	return (
 		<tr>
@@ -12,7 +11,7 @@ function Book(props) {
 			<td>{data.author}</td>
 			<td>{data.pages}</td>
 			<td>
-				{readed}
+				{data.readed}
 				<button className="btn btn-warning read-status-btn ml-3">
 					<FontAwesomeIcon
 						icon={faExchangeAlt}

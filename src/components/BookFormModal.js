@@ -1,7 +1,7 @@
 import React from 'react';
 
 function BookFormModal(props) {
-	const { data, handleChange } = props;
+	const { data, handleChange, handleSubmit } = props;
 
 	return (
 		<div
@@ -27,7 +27,7 @@ function BookFormModal(props) {
 						</button>
 					</div>
 					<div className="modal-body">
-						<form id="bookForm">
+						<form id="bookForm" onSubmit={handleSubmit}>
 							<div className="form-group">
 								<label htmlFor="bookTitle">Book Title</label>
 								<input
