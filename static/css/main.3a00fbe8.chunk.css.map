@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,qBACC,mBACD,CAEA,gBACC,qBACD,CAEA,iBACC,gBAAiB,CACjB,UACD","file":"main.3a00fbe8.chunk.css","sourcesContent":[".pointer-events-none {\n\tpointer-events: none;\n}\n\n.books-table td {\n\tvertical-align: middle;\n}\n\n.read-status-btn {\n\tfont-size: 1.1rem;\n\tcolor: #fff;\n}\n"]}
