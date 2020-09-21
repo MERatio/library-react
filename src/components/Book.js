@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExchangeAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function Book(props) {
-	const { data, handleReadStatusChange } = props;
+	const { data, handleReadStatusChange, handleBookDelete } = props;
 
 	return (
 		<tr data-bookid={data.id}>
@@ -23,7 +23,10 @@ function Book(props) {
 				</button>
 			</td>
 			<td>
-				<button className="btn btn-danger delete-book-btn">
+				<button
+					className="btn btn-danger delete-book-btn"
+					onClick={handleBookDelete}
+				>
 					<FontAwesomeIcon icon={faTrash} className="pointer-events-none" />
 				</button>
 			</td>

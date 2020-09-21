@@ -12,6 +12,7 @@ class App extends React.Component {
     this.handleBookFormChange = this.handleBookFormChange.bind(this);
     this.handleBookFormSubmit = this.handleBookFormSubmit.bind(this);
     this.handleReadStatusChange = this.handleReadStatusChange.bind(this);
+    this.handleBookDelete = this.handleBookDelete.bind(this);
     this.state = {
       books: JSON.parse(localStorage.getItem('books')) || [],
       bookForm: {
@@ -69,6 +70,13 @@ class App extends React.Component {
     this._setItem('books', booksCopy);
   }
 
+  handleBookDelete(e) {
+    const domBook = e.target.parentElement.parentElement;
+    const bookId = domBook.dataset.bookid;
+    const newBooks = this.state.books.filter((book) => book.id !== bookId);
+    this._setItem('books', newBooks);
+  }
+
   render() {
     const { bookForm, books } = this.state;
 
@@ -86,6 +94,7 @@ class App extends React.Component {
               <BooksTable
                 books={books}
                 handleReadStatusChange={this.handleReadStatusChange}
+                handleBookDelete={this.handleBookDelete}
               />
             </div>
           </div>

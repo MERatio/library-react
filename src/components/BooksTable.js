@@ -2,7 +2,7 @@ import React from 'react';
 import Book from './Book';
 
 function BooksTable(props) {
-	const { handleReadStatusChange } = props;
+	const { handleReadStatusChange, handleBookDelete } = props;
 
 	const books = props.books.map((book, index) => {
 		return (
@@ -10,6 +10,7 @@ function BooksTable(props) {
 				key={book.id}
 				data={book}
 				handleReadStatusChange={handleReadStatusChange}
+				handleBookDelete={handleBookDelete}
 			/>
 		);
 	});
