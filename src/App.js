@@ -11,6 +11,7 @@ class App extends React.Component {
     super();
     this.handleBookFormChange = this.handleBookFormChange.bind(this);
     this.handleBookFormSubmit = this.handleBookFormSubmit.bind(this);
+    this.handleReadStatusChange = this.handleReadStatusChange.bind(this);
     this.state = {
       books: JSON.parse(localStorage.getItem('books')) || [],
       bookForm: {
@@ -59,6 +60,15 @@ class App extends React.Component {
     e.preventDefault();
   }
 
+  handleReadStatusChange(e) {
+    const domBook = e.target.parentElement.parentElement;
+    const bookId = domBook.dataset.bookid;
+    const booksCopy = this.state.books.slice();
+    const book = booksCopy.find((book) => book.id === bookId);
+    book.readed = book.readed === 'No' ? 'Yes' : 'No';
+    this._setItem('books', booksCopy);
+  }
+
   render() {
     const { bookForm, books } = this.state;
 
@@ -73,7 +83,10 @@ class App extends React.Component {
           <div className="row">
             <div className="col-12">
               <BookFormModalBtn />
-              <BooksTable books={books} />
+              <BooksTable
+                books={books}
+                handleReadStatusChange={this.handleReadStatusChange}
+              />
             </div>
           </div>
         </div>
