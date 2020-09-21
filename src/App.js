@@ -36,7 +36,7 @@ class App extends React.Component {
   }
 
   _setItem(itemName, item) {
-    localStorage.setItem('books', JSON.stringify(item));
+    localStorage.setItem(itemName, JSON.stringify(item));
     this.setState({ [itemName]: item });
   }
 
